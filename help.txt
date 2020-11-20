@@ -1,0 +1,12 @@
+Welcome to Cobra Stock Analysis.
+
+Cobra is a basic application which allows users to consult/analyse/model stock times-series. 
+
+It sources online data but performs optimally with downloaded data.
+
+Cobra offers you the  possibility of searching for specific stocks, and query specified time ranges, 
+along with associated analysis, such as statistical descriptions of prices and/or volume (mean, median, range, etc), 
+technical indicators, visualisation (of the raw data, but also of transformations, such as moving averages), 
+and even basic modelling (such as regression).
+
+To use Cobra, please select what you want to do using the numbered options provided to you at the main menu.
