@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+#!/usr/bin/env python
 """
 Created on Thu Nov 19 16:40:05 2020
 
@@ -15,7 +16,6 @@ from matplotlib.backends.backend_pdf import PdfPages
 
 #Code for yfinance was provided in a tutorial and is available from 
 #https://towardsdatascience.com/free-stock-data-for-python-using-yahoo-finance-api-9dafd96cad2e
-
 def get_ticker_data(symbol, period):
     
     #Retrieves the stock specified from the ticker 
@@ -35,6 +35,10 @@ def get_ticker_data(symbol, period):
     print(historical_data)
     print('\nBasic descriptive analytics for ' +stock.info['longName'])
     print(historical_data.describe())
+    print('\nVariation for ' + stock.info['longName'])
+    print(historical_data.var())
+    print('\nQuartiles for ' + stock.info['longName'])
+    print(historical_data.quantile([.1, .25, .5, .75], axis = 0))    
     
     #historical_data['Close'].plot(figsize=(16,9))
 
@@ -46,6 +50,7 @@ def get_ticker_data(symbol, period):
 
 #get_ticker_data(symbol, period)
 
+
 def download_ticker_data(symbol, start, end):
 # Download stock data then export as CSV
     stock_df = yf.download(symbol, start=start, end=end)
@@ -53,9 +58,3 @@ def download_ticker_data(symbol, start, end):
     return stock_df
 
 
-#Plots the stock and exports it to a pdf
-# =============================================================================
-# with PdfPages(r'charts.pdf') as export_pdf:
-#     hist['Close'].plot(figsize=(16,9))
-#     export_pdf.savefig()
-# =============================================================================
